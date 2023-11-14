@@ -1,0 +1,13 @@
+{% extends 'show_info/layout.html' %}
+
+{% block content %}
+    {% for new in news %}
+        <div class="card">
+            <p class="date">{{ new.date }}</p>
+            {% if new.photo %}
+                <img src="{{ new.photo.url }}">
+            {% endif %}
+            <a href="{{ new.get_absolute_url }}"><h5>{{ new.title }}</h5></a>
+        </div>
+    {% endfor %}
+{% endblock %}
